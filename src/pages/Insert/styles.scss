@@ -1,0 +1,40 @@
+.container {
+  display: grid;
+  grid-template-columns:  auto 2fr auto;
+  height: 100vh;
+  @media (max-width: 1040px) {
+    grid-template-columns:  0.5fr 2fr 0.5fr;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  max-width: 1120px;
+
+  .submitForm{
+    display: flex;
+    justify-content: center;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.left-image {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  @media (max-width: 1040px) {
+    display: none;
+  }
+}
+
+.right-image {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  @media (max-width: 1040px) {
+    display: none;
+  }
+}

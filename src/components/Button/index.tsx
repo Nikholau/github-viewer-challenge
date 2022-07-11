@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, CSSProperties } from "react";
+import "./styles.scss";
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
@@ -8,18 +9,17 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button: React.FC<IButtonProps> = ({
   onClick,
-  color = 'blue',
   extraStyles,
-  isLoading = false,
   children,
+  title,
+  type,
   ...rest
 }) => {
   return (
     <button
+      className="containerButton"
       style={extraStyles}
-      color={color}
       onClick={onClick}
-      disabled={isLoading}
       {...rest}
     >
       {children}

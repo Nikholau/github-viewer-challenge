@@ -1,0 +1,42 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (max-width: 1040px) {
+    width: 100%;
+    max-width: none;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    top: -30px;
+    width: 100%;
+
+  }
+}
+
+.containerInput {
+  display: flex;
+  align-items: center;
+  background: #ebebeb;
+  border-radius: 5px;
+  padding: 9px 15px;
+  border: 2px solid transparent;
+  color: transparent;
+  border-color: var(--charade);
+
+  input {
+    width: 100%;
+    flex: 1;
+    background: transparent;
+    border: 0;
+    color: #3b3a34;
+    font-size: 15px;
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+

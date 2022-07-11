@@ -1,16 +1,22 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Branches from '../pages/Branches';
+import Commits from '../pages/Commits';
 import Home from '../pages/Insert';
+import Repositories from '../pages/Repositories';
 
 const Routes: React.FC = () => {
 
   return (
-    <div style={{ maxWidth: '1120px', margin: '0 auto 5rem' }}>
-        <BrowserRouter>
+    <div>
+      <Router>
         <Switch>
           <Route path="/" exact component={Home}/>
+          <Route path="/repositories"  component={Repositories}/>
+          <Route path="/branches"  component={Branches}/>
+          <Route path="/commits"  component={Commits}/>
         </Switch>
-    </BrowserRouter>
+      </Router>
       </div>
   );
 };

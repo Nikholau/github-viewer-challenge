@@ -1,0 +1,23 @@
+.containerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  width: 100%;
+  height: 50px;
+
+  border: none;
+  border-radius: 45px;
+  white-space: nowrap;
+  font-size: 14px;
+
+  transition: background-color 0.3s;
+  transition: filter 0.3s;
+
+  background: var(--daintree);
+  box-shadow: 0px 5px 20px #0766ff26;
+  color: var(--apricot);
+  text-transform: capitalize;
+
+}
