@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  // font-size: 16px (desktop)
+  @media (max-width: 1080px) {
+    font-size: 93.75%; // 15px
+  }
+  @media (max-width: 720px) {
+    font-size: 87.5%; // 14px
+  }
+  // REM = 1rem = 16px
+
+  --apricot: #F4A27E;
+  --charade: #0D0D0E;
+  --daintree: #003141
+}
+body{
+  background: var(--apricot);
+}

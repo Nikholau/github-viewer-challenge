@@ -1,0 +1,35 @@
+.left-image {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  @media (max-width: 1040px) {
+    display: none;
+  }
+}
+
+.right-image {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  @media (max-width: 1040px) {
+    display: none;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns:  auto 2fr auto;
+  height: 100vh;
+  @media (max-width: 1600px) {
+    grid-template-columns:  2fr 1fr 2fr;
+  }
+}
+
+.containerSwitch {
+  max-width: 1120px;
+  margin: 0 auto 5rem;
+  height: 100vh;
+  // @media (max-width: 1040px) {
+  //   grid-template-columns:  0.5fr 2fr 0.5fr;
+  // }
+}

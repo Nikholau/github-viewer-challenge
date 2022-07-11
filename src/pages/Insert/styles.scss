@@ -1,0 +1,20 @@
+.logo{
+  max-width: 1000px;
+}
+
+.formContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  max-width: 1120px;
+
+  .submitForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 13rem;
+  }
+  img {
+    width: 70%;
+  }
+}

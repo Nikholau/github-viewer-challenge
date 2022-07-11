@@ -1,0 +1,40 @@
+.container{
+
+  width: 100%;
+    table {
+      width: 100%;
+      border-spacing: 0;
+      tr {
+        height: 55px;
+        :last-child {
+          td {
+            border-bottom: 0;
+          }
+        }
+      }
+      th,
+      td {
+        margin: 0;
+        white-space: nowrap; 
+        border-bottom: solid 1px #ebebeb;
+        &.collapse {
+          width: 0.0000000001%;
+        }
+        &:last-child {
+          > span {
+            display: flex;
+            justify-content: space-evenly;
+          }
+        }
+      }
+      th {
+        font: 16px 'Roboto', sans-serif;
+        color: rgba(59, 58, 52, 0.7);
+        text-align: left;
+      }
+      td {
+        padding: 0.5rem;
+        font: 16px 'Barlow', 'Roboto';
+      }
+    }
+}
