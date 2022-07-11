@@ -5,10 +5,7 @@ import * as Yup from 'yup';
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import './styles.scss';
-
-import referenceLeft from "../../assets/references/EstudosID2021_Prancheta 1 cópia 2.jpg";
-import referenceRight from "../../assets/references/EstudosID2021_Prancheta 1 cópia 4.jpg";
-import logo from "../../assets/brand/jfy-logo-iron-1280.png";
+import logo from "../../assets/brand/jfy-logo-white-1280.png";
 
 
 
@@ -16,9 +13,9 @@ const Home: React.FC = () => {
   document.title = 'Home | JustForYou';
 
   const history = useHistory();
-  
-  const handleClickUser = useCallback(() => {
-    history.push('/repositories');
+
+  const handleClickUser = useCallback((name: string) => {
+    history.push('/repositories?name=' + name);
   }, [history]);
 
   const getUserForm = useFormik({
@@ -28,21 +25,18 @@ const Home: React.FC = () => {
       name: Yup.string().required('Nome é obrigatório'),
     }),
     onSubmit: values => {
-      console.log('chegou', values);
+      handleClickUser(values.name);
     },
   });
   
   return (
     <>
-    <div className="container">
-      <img src={referenceLeft} alt="left" className="left-image"/>
         <div className="form">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" className="logo"/>
           <div className="submitForm">
           <Input 
           name="name"
-          label="Nome usuário Github"
-          placeholder="Digite aqui"
+          placeholder="Nome usuário Github"
           value={getUserForm.values.name}
           formAttributes={getUserForm}
           />
@@ -53,8 +47,6 @@ const Home: React.FC = () => {
           </Button>
           </div>
         </div>
-      <img src={referenceRight} alt="right" className="right-image"/>
-    </div>
     </>
   );
 };

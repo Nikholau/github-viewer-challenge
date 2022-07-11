@@ -7,14 +7,6 @@
     width: 100%;
     max-width: none;
   }
-
-  label {
-    font-size: 14px;
-    font-weight: 500;
-    top: -30px;
-    width: 100%;
-
-  }
 }
 
 .containerInput {
@@ -37,6 +29,10 @@
     &:focus {
       outline: 0;
     }
+  }
+  input::placeholder {
+    color: #000;
+    opacity: 1;
   }
 }
 

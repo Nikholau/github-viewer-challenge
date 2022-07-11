@@ -37,9 +37,6 @@ export const Input: React.FC<IInputProps> = ({
   return (
     <>
     <div id="container">
-    {label && (
-    <label htmlFor={name}>{label}</label>
-    )}
     <div className="containerInput">
     <input 
     type="text" 
