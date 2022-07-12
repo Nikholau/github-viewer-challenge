@@ -1,16 +1,19 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Column } from "react-table";
 import { Table } from "../../components/Table";
 
 const Commits: React.FC = () => {
   document.title = 'Commits | JustForYou';
   const [commits, setCommits] = useState([]);
+  const queryString = window.location.search;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const urlParams = new URLSearchParams(queryString);
 
-  // useEffect(() => {
-  //   fetch(`https://api.github.com/users/${paramValue}/repos/{owner}/{repo}/commits`)
-  //   .then(response => response.json())
-  //   .then(data => setCommits(data))
-  // }, [paramValue])
+  useEffect(() => {
+    fetch(`https://api.github.com/repos/${urlParams.get("user_name")}/${urlParams.get("repositories")}/commits`)
+    .then(response => response.json())
+    .then(data => setCommits(data))
+  }, [urlParams])
 
   const columnsCommits = useMemo(
     () => [
