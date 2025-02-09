@@ -11,13 +11,11 @@ export const Button: React.FC<IButtonProps> = ({
   onClick,
   extraStyles,
   children,
-  title,
-  type,
   ...rest
 }) => {
   return (
     <button
-      className="containerButton"
+      className="button"
       style={extraStyles}
       onClick={onClick}
       {...rest}

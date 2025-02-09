@@ -7,22 +7,18 @@ interface ITableProps {
   data: any;
 }
 
-export const Table: React.FC<ITableProps> = 
-  ({ columns, data }: ITableProps) => {
-    const {
-      getTableProps, // table props from react-table
-      getTableBodyProps, // table body props from react-table
-      headerGroups, // headerGroups, if your table has groupings
-      rows, // rows for the table based on the data passed
-      prepareRow // Prepare the row (this function needs to be called for each row before getting the row props)
-    } = useTable({
-      columns,
-      data
-    });
-  return(
-    <div className="container">
+export const Table: React.FC<ITableProps> = ({ columns, data }) => {
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({ columns, data });
 
-        <table {...getTableProps()}>
+  return (
+    <div className="tableContainer">
+      <table {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -33,13 +29,13 @@ export const Table: React.FC<ITableProps> =
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
+          {rows.map(row => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
-                })}
+                {row.cells.map(cell => (
+                  <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                ))}
               </tr>
             );
           })}
@@ -47,4 +43,4 @@ export const Table: React.FC<ITableProps> =
       </table>
     </div>
   );
-  }
+};

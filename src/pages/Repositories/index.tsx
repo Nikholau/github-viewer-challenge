@@ -31,6 +31,7 @@ const Repositories: React.FC = () => {
       {
         Header: 'Descrição',
         accessor: 'description',
+        Cell: ({value}:any) => <div onClick={() => handleClickNameRepositories(value)}>{value}</div>
       },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,8 +41,8 @@ const Repositories: React.FC = () => {
     <>
     <div className="container">
         <Table 
-        columns={columnsRepositories as Column[]}
-        data={repositories}
+          columns={columnsRepositories as Column[]}
+          data={repositories}
         />
     </div>
     </>

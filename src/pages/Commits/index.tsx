@@ -1,39 +1,42 @@
 import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Column } from "react-table";
 import { Table } from "../../components/Table";
 
 const Commits: React.FC = () => {
   document.title = 'Commits | JustForYou';
+
   const [commits, setCommits] = useState([]);
-  const queryString = window.location.search;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const urlParams = new URLSearchParams(queryString);
+  const location = useLocation();
+
+  const queryParams = new URLSearchParams(location.search);
+  const userName = queryParams.get("user_name");
+  const repositoryName = queryParams.get("repositories");
 
   useEffect(() => {
-    fetch(`https://api.github.com/repos/${urlParams.get("user_name")}/${urlParams.get("repositories")}/commits`)
-    .then(response => response.json())
-    .then(data => setCommits(data))
-  }, [urlParams])
+    if (userName && repositoryName) {
+      fetch(`https://api.github.com/repos/${userName}/${repositoryName}/commits`)
+        .then(response => response.json())
+        .then(data => setCommits(data))
+        .catch(error => console.error("Error fetching commits:", error));
+    }
+  }, [userName, repositoryName]); 
 
   const columnsCommits = useMemo(
     () => [
       {
         Header: 'Commits',
-        accessor: 'name',
+        accessor: 'commit.message', 
       },
     ],
     [],
   );
-  
+
   return (
-    <>
     <div>
-    <Table
-        columns={columnsCommits as Column[]}
-        data={commits}
-        />
+      <Table columns={columnsCommits as Column[]} data={commits} />
     </div>
-    </>
   );
 };
+
 export default Commits;

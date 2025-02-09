@@ -1,20 +1,28 @@
-.logo{
-  max-width: 1000px;
+.homeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--background);
 }
 
 .formContainer {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  max-width: 1120px;
+  background: var(--surface);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
 
-  .submitForm{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 13rem;
+  h1 {
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 24px;
   }
-  img {
-    width: 70%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 }
