@@ -4,7 +4,7 @@ import { Column } from "react-table";
 import { Table } from "../../components/Table";
 
 const Branches: React.FC = () => {
-  document.title = 'Branches | JustForYou';
+  document.title = 'Branches | GitHub Viewer';
 
   const [branches, setBranches] = useState([]);
   const history = useHistory();

@@ -4,7 +4,7 @@ import { Column } from "react-table";
 import { Table } from "../../components/Table";
 
 const Commits: React.FC = () => {
-  document.title = 'Commits | JustForYou';
+  document.title = 'Commits | GitHub Viewer';
 
   const [commits, setCommits] = useState([]);
   const location = useLocation();
