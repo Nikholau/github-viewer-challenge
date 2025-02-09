@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/github-viewer-challenge/static/css/main.ffe25bc6.css",
+    "main.js": "/github-viewer-challenge/static/js/main.8a0380ef.js",
+    "index.html": "/github-viewer-challenge/index.html",
+    "main.ffe25bc6.css.map": "/github-viewer-challenge/static/css/main.ffe25bc6.css.map",
+    "main.8a0380ef.js.map": "/github-viewer-challenge/static/js/main.8a0380ef.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ffe25bc6.css",
+    "static/js/main.8a0380ef.js"
+  ]
+}
