@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import './styles.scss';
-import logo from "../../assets/brand/jfy-logo-white-1280.png";
 
 
 
@@ -32,7 +31,6 @@ const Home: React.FC = () => {
   return (
     <>
         <div className="form">
-          <img src={logo} alt="logo" className="logo"/>
           <div className="submitForm">
           <Input 
           name="name"
