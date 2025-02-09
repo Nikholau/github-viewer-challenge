@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Column } from "react-table";
 import { Table } from "../../components/Table";
 import { Loader } from "../../components/Loader";
@@ -10,10 +10,17 @@ const Repositories: React.FC = () => {
   const [repositories, setRepositories] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const history = useHistory();
-  const paramValueName = urlParams.get('name');
+  const navigate = useNavigate();
+  const getQueryParams = () => {
+    const hash = window.location.hash;
+    const queryString = hash.includes("?") ? hash.split("?")[1] : "";
+    return new URLSearchParams(queryString);
+  };
+  
+  const urlParams = getQueryParams();
+  const paramValueName = urlParams.get("name") || "";
+  
+
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${paramValueName}/repos`)
@@ -26,7 +33,7 @@ const Repositories: React.FC = () => {
   
   
   const handleClickNameRepositories = (name: string ) => {
-    history.push('/branches?repositories=' + name + "&user_name=" + urlParams.get("name"));
+    navigate('/branches?repositories=' + name + "&user_name=" + urlParams.get("name"));
   } 
   
   const columnsRepositories = useMemo(

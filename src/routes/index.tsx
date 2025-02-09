@@ -1,30 +1,18 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Branches from '../pages/Branches';
-import Commits from '../pages/Commits';
-import Home from '../pages/Insert';
-import Repositories from '../pages/Repositories';
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "../pages/Insert";
+import Repositories from "../pages/Repositories";
+import Branches from "../pages/Branches";
+import Commits from "../pages/Commits";
 
-import './styles.scss';
+const AppRoutes: React.FC = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/repositories" element={<Repositories />} />
+      <Route path="/branches" element={<Branches />} />
+      <Route path="/commits" element={<Commits />} />
+    </Routes>
+  </Router>
+);
 
-const Routes: React.FC = () => {
-
-  return (
-    <div>
-      <Router>
-        <div className="container">
-          <div className="containerSwitch">
-            <Switch>
-              <Route path="/" exact component={Home}/>
-              <Route path="/repositories"  component={Repositories}/>
-              <Route path="/branches"  component={Branches}/>
-              <Route path="/commits"  component={Commits}/>
-            </Switch>
-          </div>
-        </div>
-      </Router>
-      </div>
-  );
-};
-
-export default Routes;
+export default AppRoutes;

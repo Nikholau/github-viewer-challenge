@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Column } from "react-table";
 import { Table } from "../../components/Table";
 
@@ -7,7 +7,7 @@ const Branches: React.FC = () => {
   document.title = 'Branches | GitHub Viewer';
 
   const [branches, setBranches] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
@@ -25,9 +25,9 @@ const Branches: React.FC = () => {
 
   const handleClickNameBranches = useCallback(() => {
     if (userName && repositoryName) {
-      history.push(`/commits?repositories=${repositoryName}&user_name=${userName}`);
+      navigate(`/commits?repositories=${repositoryName}&user_name=${userName}`);
     }
-  }, [history, userName, repositoryName]);
+  }, [navigate, userName, repositoryName]);
 
   const columnsBranches = useMemo(
     () => [
